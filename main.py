@@ -9,7 +9,7 @@ app = Flask(__name__) # Creating our Flask Instance
 app.secret_key ="gizi"
 
 # mysql config
-app.config['MYSQL_HOST'] = 'sql12.freesqldatabase.com'
+app.config['MYSQL_HOST'] = ''
 app.config['MYSQL_USER'] = 'sql12594574'
 app.config['MYSQL_PASSWORD'] = 'mXns4f3zdK'
 app.config['MYSQL_DB'] = 'sql12594574'
