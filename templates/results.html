@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            }
+
+        input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        }
+
+        input[type=number], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        }
+
+
+        label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+        font-size: small;
+        }
+
+        input[type=reset] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        }
+
+        input[type=reset]:hover {
+        background-color: #45a049;
+        }
+
+        input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+        background-color: #45a049;
+        }
+
+        .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        margin-top: 1%;
+        }
+
+        .form_judul {
+            text-align: center;
+        }
+
+
+        .col-75 {
+        float: left;
+        width: 50%;
+        margin-top: 6px;
+        padding-left: 5%;
+        }
+
+        .col-25 {
+        float: right;
+        width: 40%;
+        margin-top: 6px;
+        }
+
+        .btn {
+            margin-top: 25px;
+        }
+        /* Clear floats after the columns */
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        .row_button:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit], input[type=reset] {
+            width: 100%;
+            margin-top: 0;
+        }
+        }
+
+    </style>
+    
+    <title>Stunting Calculator</title>
+    <!-- Font Awesome -->
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+   
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">GIZI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/database">Database <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/database/hasil">Hasil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/database/tambah">Calculate</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <div class="container" style="position: relative; padding-left: 20%; padding-right: 20%;">
+    <div class="center">
+        <h5 class="form_judul">Result</h5>
+          <div class="col-75">
+            <img src="https://drive.google.com/file/d/1nR4_wmtMwlQPMRnn6nd1ItLDo7Y5WA8H/view?usp=share_link" style="width:300px;">            
+          </div>
+          <div class="col-25">
+            <div class="card" style="width: 18rem; font-size: small; margin-bottom: 5px;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">zScore PB/U: {{zScore_pb}}</li>
+                <li class="list-group-item">{{kondisi_pb}}</li>
+              </ul>
+            </div>
+
+            <div class="card" style="width: 18rem; font-size: small;margin-bottom: 5px;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">zScore BB/U: {{zScore_bb}}</li>
+                <li class="list-group-item">{{kondisi_bb}}</li>
+              </ul>
+            </div>
+
+            <div class="card" style="width: 18rem; font-size: small;margin-bottom: 5px;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">zScore BB/PB: {{zScore}}</li>
+                <li class="list-group-item">{{kondisi}}</li>
+              </ul>
+            </div>
+
+            <div class="card" style="width: 18rem; font-size: small;margin-bottom: 5px;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">zScore HeadCircuma: {{zScore_lingkar}}</li>
+                <li class="list-group-item">{{kondisi_lingkar}}</li>
+              </ul>
+            </div>
+
+            <div class="card" style="width: 18rem; font-size: small;margin-bottom: 15px;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Status Gizi: {{kondisi_Lila}}</li>
+                
+              </ul>
+            </div>
+
+          </div>
+
+        <div class="row_button">
+        <a href="/database/hasil">
+          <button  type="button" class="btn btn-primary btn-lg btn-block">Save</button>
+        </a>
+        </div>
+    </div>
+    </div>
+   <!-- MDB -->
+   
+   <!-- Custom scripts -->
+   <script type="text/javascript"></script>
+</body>
+</html>

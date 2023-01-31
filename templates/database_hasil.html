@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database_hasil</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="../static/mdb.min.css" />
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin: bottom 5px;">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+      
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+              GIZI
+            </a>
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/database">Database</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/database/hasil">Hasil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/database/tambah">Calculator</a>
+              </li>
+            </ul>
+            <!-- Left links -->
+            <!----Right-->
+            <a class="d-flex align-items-center" href="/logout" style="margin-left:10px ;">
+              logout
+            </a>
+
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+
+    <a href="/database/tambah" class="btn btn-primary btn-info" role="button">Tambah Pasien</a>
+    <a href="/database/hasil" class="btn btn-primary" role="button">Hasil Pengukuran</a>
+  <div class="table-responsive">
+    <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>PB/U</th>
+        <th>Kondisi_PB/U</th>
+        <th>BB/U</th>
+        <th>Kondisi_BB/U</th>
+        <th>BB/PB</th>
+        <th>Kondisi_BB/PB</th>
+        <th>Lingkar Kepala</th>
+        <th>Kondisi lk</th>
+        <th>Status Gizi</th>
+        <th>Aksi</th>        
+    </tr>
+    </thead>
+    <tbody>
+        {% for d in antro %}
+            <tr>
+                <td>{{ d[0] }}</td>
+                <td>{{ d[1] }}</td>
+                <td>{{ d[8] }}</td>
+                <td>{{ d[9] }}</td>
+                <td>{{ d[10] }}</td>
+                <td>{{ d[11] }}</td>
+                <td>{{ d[12] }}</td>
+                <td>{{ d[13] }}</td>
+                <td>{{ d[14] }}</td>
+                <td>{{ d[15] }}</td>
+                <td>{{ d[16] }}</td>
+                <td> 
+                  <a href="/database/delete/{{ d[0] }}" class="btn btn-danger btn-sm" role="button">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<!-- MDB -->
+<script type="text/javascript" src="../static/mdb.min.js"></script>
+<!-- Custom scripts -->
+<script type="text/javascript"></script>
+</body>
+</html>
